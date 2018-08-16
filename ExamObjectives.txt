@@ -1,0 +1,31 @@
+101: System Architecture
+  1. Determine and Configure Hardware Settings
+  2. Boot the system
+  3. Change Runlevels/Boot Targets and Shutdown or Reboot the system
+
+102: Linux Installation and Package Management
+  1. Desing Hard Disk Layout
+  2. Install a Boot Manager
+  3. Manage Shared Libraries
+  4. Use Debian Package Management
+  5. Use RPM and YUM Package Management
+  6. Linux as Virtualization Guest
+
+103: GNU and UNIX Commands
+  1. Work on the Command line
+  2. Process Text Streams using Filters
+  3. Perform Basic File Management
+  4. Use Streams, Pipes and Redirects
+  5. Create, Monitor and Kill Processes
+  6. Modify Process Execution Priorities
+  7. Search Text Files Using Regex
+  8. Perform Basic File Editing operations in vi
+
+104: Devices, Linux Filesystems, Filesystem Heirarchy Standard
+  1. Create Partitions and Filesystems
+  2. Maintain the Integrity of Filesystems
+  3. Control Mounting and Unmounting of Filesystems
+  4. Managing disk quotas
+  5. Manage File Permissions and Ownership
+  6. Create and change Hard and Soft Links
+  7. Find System Files and Place Files in the Correct Location
