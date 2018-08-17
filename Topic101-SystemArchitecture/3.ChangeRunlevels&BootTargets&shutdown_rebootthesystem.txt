@@ -1,0 +1,84 @@
+##########################################################
+Change your working environment: runlevels
+##########################################################
+Runlevel Overview
+
+0 - halt
+1 - Single user mode
+2 - multi-user with no networking
+3 - multi-user with networking
+4 - unused
+5 - multi user with networking and grapchical desktop
+6 - reboot
+
+$ runlevel
+N 5 (N - previous runlevel 5 - current runlevel)
+changing runlevel from 5 to 3
+# telinit 3
+we will be switched to runlevel 3
+$ runlevel
+5 3
+$ cat /etc/inittab
+changing the default runlevel without changing the /etc/inittab file
+reboot the ssystem
+interrupt the boot process by pressing any key
+on Grub menu press "a" key to modify the kernel arguments
+<TYPE=pc KEYTABLE=us rd_NO_DM rhgb quiet 3
+
+#telinit 0
+
+##########################################################
+Change your working environment: targets
+##########################################################
+Purpose of systemd target
+- A target is a unit that sy ncs up other units when the computer boots or changes state
+- Often used to bring the sytem to a new state
+
+Types of targets
+- multi-user.target -> similar to 3 runlevel
+- graphical.target
+- rescue.target
+- basic.target
+- sysinit.target - system initialization
+- man 5 systemd.target
+- man 7 systemd.special
+
+onDebian 9
+$systemctl cat graphical.target
+$systemctl list-unit-files -t target
+$systemctl list-units -t target #lists out active units
+$systemctl get-default
+graphical.target
+#systemctl set-default multi-user.target
+#systemctl get-default
+#systemctl isolate multi-user.target
+#systemctl default
+#systemctl rescue
+#systemctl reboot
+#systemctl poweroff
+
+##########################################################
+Reboot and Shutdown your system
+##########################################################
+Reboot commands
+#reboot
+#telinit 6
+#shutdown -r now (r option to specify time)
+#systemctl isolate reboot.target
+
+wall - broadcasts a message to all logged in users - after message is typed type Ctrl+D
+
+Shutdown commands
+#poweroff
+#telinit 0
+#shutdown -h 1 minute
+#systemctl isolate poweroff.target
+
+acpid
+Advanced configuration and power interface,registers system events
+(such as pressing the power button, closing the laptop lid)
+ls /etc/acpid
+ls /etc/acpid/events/
+pwoer.conf video.conf
+cat /etc/acpid/events/power.conf
+cat /etc/acpi/actions/power.sh

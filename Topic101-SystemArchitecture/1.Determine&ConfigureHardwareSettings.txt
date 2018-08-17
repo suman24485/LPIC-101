@@ -1,0 +1,99 @@
+##################
+Pseudo Filesystem
+##################
+- Regular File system is a method of laying out files and folders
+ on a physical disk
+- exists only on RAM and will be available only when system is running
+- Two pseudo filesystems of interest
+    - /proc
+      #cd /proc
+      #ls
+      - contains all the current running processes (PID) represented by a directory
+      - also contains some more info like cpuinfo,meminfo,uptime,version etc.,
+      #cat cpuinfo
+      #cd 1/ - contains info about this particular process
+      #ls
+      #cat cmdline
+
+    - /sys
+      contains the info about the devices and the kernel
+      #cd /sys
+      #ls
+      #cd fs - contains info abt the filesystems on the machine
+      #ls
+      #cd xfs
+      #cd xvda1/
+      error log stats
+      #cd stats
+      #ls
+      stats stats_clear
+      #cat stats
+
+####################################
+Working with Kernel Modules
+####################################
+Linux Kernel
+- Core Framework of the OS
+- Provides a way for the rest of the system to operate with h/w, memory, networking and itself
+- it is monolithic
+    - handles all mem mgmt and h/w device interactions
+    - extra functionality can be loaded and unloaded dynamically through kernel modules
+    - ensures the system will not need to be rebooted into a different kernel image for added functionality
+- many third party kernl modules are device drivers
+
+uname
+#uname
+Linux
+#uname -m
+bitrate
+#uname -rm
+kernel release version along with machine type(bitrate)
+#uname -a
+shows everything abt the machine
+
+modules
+#lsmod (list modules)
+Module    Size    Used by
+
+#modinfo <modulename>
+
+modprobe to load/unload particular module)
+#modprobe -r <modulename> (removes module)
+#modprobe <modulename> (loads module)
+
+####################################
+Investigating Hardware
+####################################
+Linux Device Mgmt
+udev - device manager for linux kernel links information on
+
+New Hardware is attached to system
+Udev(detects the h/w and sends info to /dev(pseudo filesystem) through Databus service)
+Udev---- D-Bus ----> /dev <---D-Bus---> #lsblk(user command)
+
+#ls /dev - contains info abt the processorsinfo, mem,network info,harddrive,tty locations
+#ls /dev/cpu - contains  the info about the no.of cores
+#ls /dev/cpu/0/
+#ls /dev/dri - video drivers
+
+Attach a USB and run the below commands
+#ls /dev/
+sda sda1 => externally attached harddrive
+
+lspci - list out all the pci devices attached to our computer
+devices connected to the PCI buses
+#lspci
+#lspci -k (to list out which part of hw is using the which modules)
+#lspci -v (each individual hardware is capable of)
+
+lsusb - shows list of USB devices attached
+#lsusb
+#lsusb -v
+#lsusb -t (to show which usb device is attached to which usb controller)
+
+lscpu - details about the cpu liike architecture etc
+#lscpu
+
+lsblk - to see which harddisk are attached to the system
+#lsblk
+#lsblk -f
