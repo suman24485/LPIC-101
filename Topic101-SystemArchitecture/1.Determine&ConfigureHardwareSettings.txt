@@ -83,7 +83,7 @@ sda sda1 => externally attached harddrive
 lspci - list out all the pci devices attached to our computer
 devices connected to the PCI buses
 #lspci
-#lspci -k (to list out which part of hw is using the which modules)
+#lspci -k (to list out which part of hw is using which modules)
 #lspci -v (each individual hardware is capable of)
 
 lsusb - shows list of USB devices attached

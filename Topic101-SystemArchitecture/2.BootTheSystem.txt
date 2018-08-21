@@ -24,7 +24,7 @@ systemd utility to view the kernel ring buffer within the systemd journal
 ############################
 init
 ############################
-- BAsed of the System V init used in UNIX
+- BAsed off the System V init used in UNIX
 - on System V init Services are started one after the other in a serial fashion
 
 init startup
@@ -109,7 +109,7 @@ Getting rid of shell scripts
 - still compatible with older system V init scripts
 UnitFile Locations
 /usr/lib/systemd/system - provided by pkg installations
-/etc/systemd/system - unti file location for suystem admins( these take precedence over other in /usr)
+/etc/systemd/system - unti file location for system admins( these take precedence over other in /usr)
 /run/systemd/system -  runtime unti files
 systemctl list-unit-files
 

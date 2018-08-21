@@ -1,0 +1,20 @@
+####################################
+Main File System locations
+####################################
+Primary Locations
+/ - Bottom of the directory tree,the root
+/var - variable location,log files and dynamic content are often found here
+/home - the users' home directory where personal files are stored
+/boot - where the linux kernel and supporting files are stores
+/opt - usd for optional sw,often used by 3rd party sw vendors.
+
+Swap space
+- Temp storage that acts liek RAM
+- when a %age of RAM is full,the kernel will move less used data to swap
+- swap partition(most common setup)
+- swap file(similar to page file on windows OS)
+  - Much slower performance than using dedicated partition
+- Sizing
+  - Older rules of thumb raged from 1.5x to 2.0x the size of your available RA<
+
+Partitions and Mount Points
