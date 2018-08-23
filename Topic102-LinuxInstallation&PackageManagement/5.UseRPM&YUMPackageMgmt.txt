@@ -1,0 +1,57 @@
+YUM - Yellowdog Updater Modified
+- Originally used for Yellowdog Lnx distro
+- Handles RPM pkg dependencies
+- installs,upgrades and removes pkgs
+Yum setup
+- Global yum config file /etc/yum.conf
+- reads repo info from /etc/yum.repos.d/
+- caches lateste repo info in /var/cache/yum
+Other RPM package managers
+- Zypper:
+    Used on SUSE lnx
+        zypper repos
+        zypper install vim
+- DNF - Dandified yum
+    Used on Fedora
+    Uses same cmd syntax as yum
+
+#yum update
+#yum search httpd
+#ls /etc/yum.repos.d
+#cat /etc/yum.repos.d/epel.repo
+baseurl=<web address from whr the pkgs are downloaded>
+#yum info httpd
+#yum list installed | less
+#yum clean all - cleans up
+#yum install
+#yum remove (leaves dependencies behind)
+#yum autoremove (uninstalls including dependencies)
+#yum whatprovides */httpd (find out what pkg provides a specified file name)
+#yum reinstall(reinstalls a specified pkg)
+#yum install yum-utils
+#yumdownloader mc
+
+###################################
+ The Red Hat Package Manager (rpm)
+###################################
+.rpm contains
+    - apps or utility
+    - default config files
+    - hw and whr to install the files that come with pkg
+    - listing of dependencies that pakge requires
+  rpm database
+    - locate in /var/lib/rpm
+    - use the "rpm --rebuilddb"  - command to repair a corrupted rpm database
+  Dependencies need to be already installed or installed iwth the pkg
+    - yum handles dependencies but rpm doesn't
+
+rpm cmds
+#rpm -qpi <pkg name> (info abt the pkg)
+#rpm -qpl <pkgname> (list of files in the rpm package)
+#rpm -qa | less (list all the installed pkgs)
+#rpm -ivh <pkgname>
+#rpm -Uvh <pkgname> (upgrade the app)
+#rpm -e <pkgname> (erase an installed pkg)
+#rpm -Va (verify all installed pkgs)
+#rpm2cpio some.rpm| cpio -idmv ( to access the contents of the rpm similar to converint ispkg to zip and extracting)
+converts an rpm to a cpio archive file often combined with the cpio comd

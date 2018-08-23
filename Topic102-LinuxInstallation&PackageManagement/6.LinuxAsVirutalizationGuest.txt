@@ -1,0 +1,34 @@
+Virtualization and Containers
+
+Virtual Machine
+  - Emulation of a specific computer system type
+  - Operate based on the arch and functions of a real computer and its implementation
+  can involve specialized hw,sw or both
+  - Virtualization sw allows us to setup on OS within another:
+        - both share same physical hw(n/wcards,ram,hdd)
+        - VM is isolated from that hw and has to communicate with it through hypervisor
+        - Hypervisor examples
+              - KVM
+              - QEMU
+              - VMWare
+              - Xen
+              - VirtualBox
+
+Virtual Machine Basics
+Two types of virtualization
+- Full Virtualization
+
+- Para Virtualization
+VMs can be cloned or turned into templates to repadily deploy new systems
+    - Note that you may need to change a lnx system's D-Bus machine ID
+    - dbus-uuidgen - ensures that each running kernel interacts with a suystem that has a unique ID
+
+VMs in the cloud
+- cloud-init is typically iused to insure that user data is totally new like
+    - Create new ssh keys
+    - sets the system default ocale
+    - sets the systems hostname
+    - setsup mount points
+
+Containers
+-

@@ -1,0 +1,59 @@
+###########################
+The Advanced Package Manager (apt)
+###########################
+APT - Advanced Package Tool
+  - Install Apps and their dependencies
+  - Remove apps
+  - updates and upgrades of packages
+Basics of how is works:
+  - Reads the /etc/apt/sources.list
+  - Directs installation and uninstallation of pkgs to dpkg
+
+cmds
+#cat /etc/apt/source.list
+#apt-get update
+updates the local apt cache with a listing of packages that can be updated/upgraded and installed.
+#apt-get upgrade
+#apt-get install
+#apt-get install chromium-browser
+#apt-get remove chromium-browser (doesn't remove dependencies and configuration files)
+#apt autoremove (to remove dependencies)
+#apt-get purge chromium-browser(removes configuration files)
+#apt-get dist-upgrade
+upgrades all pkgs on the system upto the next release of distribution
+$apt-get download htop( downloads the pkg but doesn;t install)
+#apt-cache search apache
+searches through the local apt cache for a package that can be installed
+#apt-cache show libpache2-mod-bw
+lists out basic information about a pkg
+#apt-cache showpkg libpache2-mod-bw
+displays more technical information about a package
+
+###########################
+Using Debian Package(dpkg)
+###########################
+Debian package utility
+- works with .deb pkgs
+- deb package contains
+    - app or utility
+    - default config files
+    - how and whr to install the files that comme with pkg
+    - listing of dependencies the package requires
+- dependencies need to be already installed or installed with the pkg
+    - apt handles dependencies but dpkg doesn't
+
+dpkg cmds
+#dpkg --info <pkgname>
+list out the info abt the pkg
+#dpkg --status <appname>
+lists out the info abt the installed pkg
+#dpkg -l nano
+provides us with basic info
+#dpkg -i <pkgname>
+#dpkg --status <pkgname>
+#dpkg -L <pkgname>
+#dpkg -r <pkgname> (to remove pkg but leaves config files)
+#dpkg -P <pkgname>(removes all the files)
+#dpkg -S nano
+#dpkg-reconfigure console-setup
+modifications of pkg by rerunning the app's config tool

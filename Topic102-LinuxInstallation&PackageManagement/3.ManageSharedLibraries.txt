@@ -1,0 +1,22 @@
+Manage Shared Libraries
+
+Shared Library
+  - Files containing functionality that other applications can use
+  - These files end in a .so extension - for "shared object"
+  - Found at belwo locations
+      - /lib
+      - /usr/lib(32bitsystems) and /usr/lib64
+      - /usr/local/lib
+      - /usr/share
+  - Two types of library files
+      - Dynamic(ends in .so) => shared among multiple apps
+      - Statically linked(ends in .a) => compiled for apps that need to make sure that it calls the same version.
+cmds
+#ldd - prints out the so dependencies
+#ldconfig - configures dynamic linker runtime bindings, creates a cache based on library directories and can show you what is currently cached
+#cat /etc/ld.so.conf
+conf. files that points to directories and other config files that hold refs to library directory location
+
+Env variable
+LD_LIBRARY_PATH
+legacy env variable that points to a path where library files can be read from
