@@ -1,0 +1,94 @@
+###############################
+Legacy GRUB
+###############################
+Grand Unified Boot Loader on MBR (Master Boot Record)
+MBR is first 512 bytes
+
+Bios checks everthing and if everything all hw is good to go
+Stage 1
+BIOS locates a boot loader
+boot loader has a small image boot.img on MBR which is first 512 bytes
+Stage 1.5
+boot.img look for core.img
+whole purpose of bootimg is to get the core.img loaded
+Stage 2
+core.img pur is to locate actual boot partition of the system
+/boot/grub
+grub.conf/menu.lst (redhatdistro/debdistro)
+device.map - indicates which  drive contains the actual kernel and the OS that needs to be booted
+
+check grub.conf file
+contains the details of the list of linux kernels available
+
+Installing GRUB
+grub-install [device]
+device can be /dev/sda or /dev/hd0 or '(hd0)'
+#grub
+grub> find /grub/stage1
+
+grub cmds
+#grub
+grub> help
+grub> find /grub/stage1
+
+######
+GRUB2
+######
+Difference b/w MBR and GPT
+
+MBR
+- used with legacy grub supported only 26total partitions
+- each partition size limited to 2TB
+
+Due to the above constraints we now have GPT
+
+GPT(GUID Partition Table)
+- a single GPT disk supports 128 artitions
+- partition size up in ZB
+- Needs UEFI(Unified Extensible Firmaware Interface) to boot:
+    - Replacement fro traditional BIOS,can act in legacy BIOS mode
+    - Requires 64bit OS
+    - prevents unauthorized OS from booting on the system
+
+GRUB2 on GPT with UEFI
+
+UEFI BIOS
+Stage 1
+UEFI BIOS locates MBR same as legacy GRUB which contains boot.img
+GPT Header, Partition Entry Array(large listing of partitions)
+
+Stage 1.5
+- core.img looks for /boot/efi partition
+- this is known as efi system partition or ESP(only vfat or FAT32)
+
+Stage 2
+ls /boot/grub2
+grubenv
+themes
+
+grub2 cmds
+on redhatdistro grub2-<cmd>
+on debdistro grub-<cmd>
+#grub2-editenv list
+#cat /etc/default/grub
+#vim /etc/default/grub
+#grub2-mkconfig
+#less /boot/grub2/grub.cfg
+#ls /etc/grub.d
+
+#######################################
+Interacting with the boot loader
+#######################################
+GRUB LEGACY
+
+On Centos
+[A]key - append options to the kernel boot line
+
+[C]key - opens up the GRUB cmd line
+
+[ESC]key - escapes out of any GRUB menu
+
+On Ubuntu
+[E]key - used to edit a GRUB menu item
+
+Ctrl+x or F10 - boots a selection or modified line

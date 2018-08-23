@@ -16,22 +16,29 @@ Swap space
   - Much slower performance than using dedicated partition
 - Sizing
   - Older rules of thumb raged from 1.5x to 2.0x the size of your available RAM
+  - now a days its up to you but no less than 50% of your available RAM
 
 Partitions and Mount Points
 
 Partitions
-
+/dev - contains the info abt the devices
+sda
+sd - sata disc or scsi disk
+'a' in sda indicates first disk connected
+sda into sda1 sda2 sda3
 Ex:
 /dev/sda - first harddrive
+/dev/sdb - second hdd and so on
 
 Mount Points
 Taking a partition or disk and mounting it to a directory
 
 Commnds
 #mount
-lists all the mounts on the system
+lists all the mounts on the system including pseduo filesystems
 more on xvda1
-xvd - virtual drive under gen hypervisor
+/dev/xvda1 -
+xvd - virtual drive under xen hypervisor
 
 #lsblk
 list out all the block devices
@@ -40,14 +47,14 @@ block devices are usually harddisks or the partition that takes more space
 #fdisk -l /dev/xvda
 to list out the partitions on a harddrive
 
-#swapon --summary
+#swapon --summary (how swap partitions are setup)
 /root/swap
 
 ####################################
 Introduction to LVM(Logical Volume Manager)
 ####################################
 Allows the creation of groups of disks or partitions that can be assembled into a single or multiple filesystems
-  - can be used for nearly any mount point except /boot
+  - can be used for nearly any mount point except /boot (bcoz grub cannot read LVM metadata)
   - Flexibility - allows for resizing of volumes
   - Snapshots - allows for point in time copies of your logical volume
 Example
@@ -56,12 +63,16 @@ LogicalVolume lv_root lv_var lv_swap lv_home
 VolumeGroup vg_base
 PhysicalVolume /dev/sda /dev/sdb /dev/sdc
 
+
 Sampling of LVM commands
 #pvs
 lists out the physical volumes in an LVM Group
+PV    VG    Fmt(format) Attr PSize PFree
 
 #vgs
 lists out the volume groups within an LVM group
+VG    #PV   #LV   #SN   Attr VSize VFree
 
 #lvs
 lists out the logical volume groups within an LVM group
+LV    VG    Attr    LSize   Pool    Origin    Data%   Meta%   Move Log  Cpy/Sync   Convert
