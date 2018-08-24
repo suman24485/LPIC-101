@@ -16,19 +16,44 @@ Virtual Machine
 
 Virtual Machine Basics
 Two types of virtualization
-- Full Virtualization
+- Full Virtualization - guest OS is not aware that it is a VM
 
-- Para Virtualization
-VMs can be cloned or turned into templates to repadily deploy new systems
+- Para Virtualization - guest OS is aware that it is VM,uses guest drivers(installed to communicate with host OS and its hw)
+    - VM perform better with guest drivers
+VMs can be cloned or turned into templates to rapidly deploy new systems
     - Note that you may need to change a lnx system's D-Bus machine ID
     - dbus-uuidgen - ensures that each running kernel interacts with a suystem that has a unique ID
 
 VMs in the cloud
-- cloud-init is typically iused to insure that user data is totally new like
+- virtual servers can be provisioned from cloud providers
+- if using a cloned VM , cloud-init is typically iused to insure that user data is totally new like
     - Create new ssh keys
     - sets the system default ocale
     - sets the systems hostname
     - setsup mount points
+Cloud providers
+AWS
+Azure
+RackSpace
 
 Containers
--
+- isolated set of pkgs,libs, and/or apps that are completely independent from their surroundings
+Types of containers
+- Machine Container : shares a kernel and filesys with the host computer
+- Application Container : shares everything but the app fils and lib files that the app needs.
+Ex:
+Docker
+nspawn(from systemd)
+LXD
+Openshift
+
+Why is the difference important?
+Virtualization
+- invented to allow the sharing yet segregation of server instances from each other
+- Protect one OS from another
+- Prevention of letting spare CPU cycles, mem or disk space go to waste
+- They are based on emulating virtual hw through a hyperviosr,heavy in terms of suystem requirements
+Containers
+- use shared OS
+- more efficient in system resource terms
+- more granular mgmt of system resources
