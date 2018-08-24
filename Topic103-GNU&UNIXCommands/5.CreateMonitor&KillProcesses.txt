@@ -1,0 +1,106 @@
+Reviewing the State of the system
+A process is set of instructions loaded into memory
+these come from a program that is running
+  mem context
+  priority
+  environment
+PID 1 is the parent process
+
+$ ps -eH | less
+presents the process heirarchy
+systemd
+
+  node
+    login
+      bash
+    login
+      bash
+        ps
+        less
+
+$ ps (shows just the processes currently runing on the current shell)
+$ ps -u <username>
+$ ps -e (shows every process runing on the system of all the users)
+$ ps -e --foreswitch
+$ ps -efH ( full listing )
+$ ls /proc (ps get the info from /proc)
+
+$ top (shows the dynamic status of the processes)
+[K] and enter the PID of which you want to kill
+
+Monitoring Processes
+uptime - shows how long the system has been running and users currently on the system and CPU load average
+$uptime
+
+$free - view used and available memory and swap space
+Mem:
+Swap:
+$ free -m
+$ free -g
+
+$ pgrep - find process info based on process name
+$ pgrep httpd
+$ pgrep -a httpd
+$ pgrep -u username
+$ pgrep -u root
+
+$ sudo yum install man-pages
+$ man 7 signal
+search for /Standard signals
+SIGHUP  1
+SIGINT  2
+SIGKILL 9
+SIGTERM 15
+
+$ pgrep httpd
+$ sudo kill <PID>
+$ kill -l
+$ sudo kill -9 <PID>
+$ sudo pkill httpd
+$ pgrep -a httpd
+$ pkill -x httpd
+
+Keep a Process Running even after the logout
+$ killall - kills all processes based on the provided name
+$ sudo killall httpd
+$ sudo killall -s 9 httpd
+
+watch - runs a command at specified intervals.Used to monitor a commands' output
+$ watch date
+Ctrl+c
+$ watch -n 5 date
+
+screen - terminal windows manager that allows you to run commands in an isolated session
+$ screen
+$ watch -n 3 date
+Ctrl+a d detaches frin the session
+$ screen -r (to reattach)
+$ screen
+$ cat /etc/passwd
+Ctrl+a d
+$ screen -ls
+$ screen -r <screenIdnumber>
+$ exit (to terminate the screen session)
+
+tmux - similar to screen
+$ tmux
+$ ssh
+$ ls
+Ctrl+b d
+$ tmux ls
+$ tmux attach-session -t <no.ofthe session>
+$ exit
+$ exit
+
+nohup - a cmd that is preceded by  nohup receives signal 1(NOHUP) so that should a terminal window close
+$ nohup ping www.google.com &
+[1] 3186
+$ jobs
+$ tail -f nohup.out
+$ jobs -l
+$ fg 1
+Ctrl+z to send it back to the bg
+$ bg %1
+$ jobs -l
+$ kill 3186
+$ jobs -l

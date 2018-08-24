@@ -1,0 +1,93 @@
+###############################
+Your BASH Shell Env
+###############################
+Bash - bourne again shell
+csh
+ksh
+sh
+
+Env variables
+Syntax
+    VARIABLE=path,command,alias
+    Ex:
+      CWD=/home/user/documents
+
+Bash Functions
+Ex:
+function yo()
+{
+  echo "yo"
+}
+
+cmds
+#env - lists out all the environment variables
+# echo $VARIABLE_NAME - value of the variable
+#set | less (displays all shell settings and shell variables for the session)
+variables PS1 PS2
+#set -x
+#set +x
+
+function
+$ function yo() { echo "yo" }
+$ yo
+yo
+$ unset -f yo
+$ yo
+
+$ shopt - show opt command
+displays shell options and their current settings
+$ shopt -s histreedit
+
+$ export
+cmd used to export a variable to the current shell and any new shells started from the current shell
+
+$pwd
+$ echo $PWD
+$ cd ~
+$ cd
+
+$ which pwd
+/usr/bin/pwd
+
+$ type - used to find if particular item is inbuilt or external aplication
+$ type ls
+$ type cd
+$ type type
+
+$ echo $PATH
+$ echo "$PATH"
+$ echo '$PATH'
+
+########################################
+Bash history and the manual pages
+########################################
+$ history
+command that shows the most recently ran commands
+$ !<number of the command from the list> (to rerun the previously run cmd)
+
+$ ls -a
+$ cat .bash_history
+File locatd in user's home dir that contains  the preiously run commands
+
+$ echo $HISTFILESIZE
+Variable that determines how many lines the .bash_history file will contain
+
+Manual Pages
+$ man <cmdname>
+s1 : Executable programs or shell cmds
+s2 : system calls - funcs provided by the kernel
+s3 : Library calls - funcs within program libs
+s4 : special files - typically those found in /dev
+s5 : file fomats and conventions Ex : /etc/passwd and other config files
+s6 : Games
+s7 : Miscellaneous items and convention - ex: man(7),regex(7)
+s8 : system admin cmds - usually only for root
+s9 : kernel routines(nonstandard)
+
+$ man ls
+
+$ man -k <keyword>
+$ apropos <keyword> (links to man -k command)
+$ man [section number]
+$ man 4 synaptics
+$ man 5 sudoers

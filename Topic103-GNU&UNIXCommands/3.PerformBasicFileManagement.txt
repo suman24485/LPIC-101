@@ -1,0 +1,127 @@
+###########################
+Working with Files
+###########################
+ls
+$ ls - cmd used to display a list of files and directories
+$ ls -a
+$ ls -l (longlisting)
+total <
+Permissions   Userowner grpowner filesize date/time filename/dirname
+$ ls -d etc/
+$ ls -ld etc/
+$ ls -lR etc/
+
+touch
+$ touch a_file
+$ ls -l a_file
+$ touch -m a_file
+
+copy
+$ cp test.sh test.sh.bak
+$ cp -vR etc/ etc_bak
+$ cp a_file a_file
+$ cp -i test.sh test.sh.bak
+$ cp -f test.sh test.sh.bak
+
+rm
+$ rm a_file
+$ rm -i test.sh.bak
+$ rm -f test.sh.bak
+$ rm -rf etc.bak (to remove dirs we need to use rf options)
+
+mv (often used to rename a file or directory)
+$ mv addendum addendum_orig
+$ mv addendum_orig content-lpic-1/
+
+file (meant to determine file's type)
+$ file *.rpm
+$ file test.sh
+$ file *.gz
+
+###########################
+Working with Directories
+###########################
+cd - change directory command - to navigate through the filesystem
+$ cp /etc/passwd .
+$ cd -
+takes us to the previously accessed directory
+the above cmd uses $OLDPWD
+
+mkdir
+
+rmdir
+
+echo $PATH
+
+###########################
+File and Folder Compression
+###########################
+Archiving
+dd - copies and convert files . Often used to create files of arbitrary size and to backup disk drives.
+$ sudo dd if=boot.img of=/dev/sdc
+$ sudo dd if=/dev/xvda of=/tmp/mbr.img bs=512 count=1
+$ ls /tmp
+$ sudo dd if=/dev/urandom of=file bs=1024k count=10
+$ ls -lh /tmp
+
+tar - tape archive - archives but doesn't compress
+$ tar -cf <targetfilename>.tar <source>
+$ tar -tf *.tar
+$ tar -xf *tar
+$ rm *tar
+gzip
+$ tar -czf content.tgz or content.tar.gz
+
+bzip2
+$ tar -cjf *tar.bz2 <cntenttocompress>
+
+gunzip
+$ tar -xzf *tar.gz
+
+bunzip2
+$ tar -xjf *tar.bz2
+
+gzip
+$ gzip <contenttocompress>
+creates *gz
+$gunzip *gz
+
+bzip2
+$ bzip2 <contentocompress>
+creates *bz2
+
+xz
+$ xz passwd
+creates passwd.xz
+
+unxz
+$ unxz passwd.xz
+
+###########################
+Finding files
+###########################
+$ find -name mc.sh
+$ sudo find / -name passwd
+$ find . -ctime 1 (find files based on the time when they were last changed)
+$ find . -atime 2 (find files based on their access time)
+$ find . -newer passwd
+$ find . -empty (find files and folders that are empty)
+$ find . -empty -type f (find only files that are empty)
+$ find . -empty -type f -exec rm -f {}\;
+$ find ~ -name "*.tar.*" -exec cp -v {} /home/user/ \;
+       -exec[command]{}\;
+
+###########################
+File Globbing
+###########################
+* matches zero or more characters
+? Matches any single character
+[abc] matches anyone of the characters in the list - case sensitive
+[^abc] matches anyone of the character except those in the list
+[0-9] Matches a range of numbers
+
+$ ls test?.txt
+$ ls [pP]*.csv
+$ ls [Ww]eather[rR]eport199[0-9]?2017.*
+$ ls [^WtTJP]*
+$ 

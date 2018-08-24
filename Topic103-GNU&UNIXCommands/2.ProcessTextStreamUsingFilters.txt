@@ -1,0 +1,113 @@
+########################################
+BasicViewing of Text files
+########################################
+$cat test.sh addendum
+$cat <target> <source>
+$ less /etc/passwd
+Readonly text viewing utility
+$ head
+defaults to displaying the first 10lines of a file
+$ head -15 /etc/passwd (displkays first 15lins)
+$ tail /etc/passwd
+defaults to displaying the last 10lines of file
+$ tail -f /var/log/secure (following a file)
+
+$ zcat to view gzip compressed files
+$ zcat script1.sh.gzip
+$ bzcat <>.bz2
+$ xzcat <>.xz
+
+############################
+Text File Statistics
+############################
+cmds
+$ nl <filename> (number line)
+$ nl -ba <filename>
+
+$wc <filename> (to count how many words in given text file)
+output:
+lines words bytecount <filename>
+$wc -w <filename> (output is just the workd count)
+$wc -l (no of lines)
+$wc -c (bytecount)
+
+od - octal dump cmd
+$ od <filename>
+first coulmn indicates byte offset
+content of the file in octal format
+$ od -c <filename> (octal data in character format)
+$ od -a <filename> (octal data in ascii format)
+
+Messgae digests - fingerprint of a file - hash value
+- md5sum
+Calculates and checks a file's hash based on the MD5 algorithm
+$ md5sum test.sh > test.md5
+$ md5sum -c test.md5
+modify test.sh and then run the below cmd
+$ md5sum -c test.md5
+- sha265sum
+Calculates and checks a file's hash based on SHA-2 algo using 256bits
+$ sha256sum test.sh > test.sha256
+$ sha256sum -c test.sha256
+modify the test.sh
+$ sha256sum -c test.sha256
+- sha512sum
+Calculates and checks a file's hash based on SHA-2 algo using 512bits
+
+############################################
+Text Manipulation
+############################################
+git repo - https://github.com/linuxacademy/content-lpic-1
+fable.txt list.csv stats.txt
+
+$ cat list.csv
+$ sort list.csv ( sorts the content based on the first column)
+in this case it is numbers
+$ sort -n list.csv
+considers the number as a whole
+$ sort -t "," -k2 list.csv
+sorting alphabetically based on second column
+sort doesn't modify  the file just prints the sorted output
+
+$ cat stats.txt
+$ uniq stats.txt (groups the similar entries and dislays the output)
+$ uniq -c stats.txt
+$ uniq --group stats.txt
+$ sort -u stats.txt
+
+translate tr
+$ cat list.csv | tr ',' ':'
+replaces delimiter (doesn't modify the file)
+$ cat list.csv | tr -d ','
+removes the delimiter ","
+$ cat list.csv | tr 'A-Z' 'a-z'
+converts all the uppercase chars to lowercase
+$ cat list.csv | tr 'A-Z' 'a-z' | tr ',' ':'
+
+cut cmd(default delimiter is tab)
+$ cut -d',' -f 3 list.csv
+$ cut -d',' -f 2,3 list.csv
+$ cat list.csv | tr ',' '\t' | cut -f 2,3
+
+paste cmd (similar to cat cmd but it merges lines of file)
+$ paste list.csv stats.txt
+$ paste -d ',' list.csv stats.txt
+$ paste -s ',' list.csv stats.txt(serial merging)
+
+sed cmd (stream editor search and replace)
+$ sed 's/desktop/workstation/g' list.csv
+$ sed -i 's/desktop/workstation/g' list.csv (this modifies the file content)
+sed -i 's/desktop/workstation/Ig' list.csv (this modifies the file content)
+I to replace the word irrespective of case
+$ cat list.csv
+
+split cmd(breaks a file into pieces)
+$cat fable.txt
+$split fable.txt
+$ cat xaa
+$ rm xaa
+$ split -b 100 fable.txt
+$ split -d --verbose -n2 fable.txt
+$ cat x0* > fable1.txt
+$ md5sum fable.txt
+$ md5sum fable1.txt

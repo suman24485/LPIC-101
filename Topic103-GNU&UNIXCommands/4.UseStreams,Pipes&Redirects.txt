@@ -1,0 +1,47 @@
+Standard output
+- All unix like OS have something like a bucket where all output goes
+- this bukcet is called std output
+- abbreviated as stdout
+
+Redirecting stdout
+- characters >, >>
+
+Standard input
+- input into a process or app usually comes from entries made on keyboard
+- files and stdout from other cmds can provide input to another command
+- characters <, |
+- stdin
+- ex:
+    wc test.sh (input comes from keyboard)
+    wc < test.sh (iput comes frm file)
+    cat /etc/passwd | less (input comes frm stdout of cat cmd)
+
+Standard Error
+- stderr
+- stderr has a file handle number associated with it : 2
+  stdin has 0
+  stdout has 1
+
+Redirecting all the things
+  ./test.sh (stderr goes to screen)
+  ./test.sh 2> error.log (stderr gots redirected to error.log file)
+  ./test.sh 2>&1 | less (stderr and stdout gets sent as stdin to the less cmd)
+
+Redirecting Output to the Screen and a File
+$ echo "yep" > myfile.txt
+$ echo "yep some more" >> myfile.txt
+$ cat < myfile.txt
+$ cat /etc/passwd | less
+
+tee command - redirect stdout to a file
+$ ls -d /usr/shared/doc/lib[Xx]* | tee lib-docs.txt
+displays the stdout on screen as well sending it to the file
+command | tee file | command | tee file
+$ ls -d /usr/shared/doc/lib[Xx]* | tee lib-docs.txt | sort -r | tee lib-docs-reverse.txt
+
+xargs
+$ ls /test
+$ find test/ -empty
+$ find test/ -empty -exec rm -f {}\; (exec processes one file at a time)
+$ find test/ -empty | xargs rm -f (creates a sublist and faster than exec)
+$ grep -l "junk" test/file_* | xargs -I {} mv {} test/bak/
