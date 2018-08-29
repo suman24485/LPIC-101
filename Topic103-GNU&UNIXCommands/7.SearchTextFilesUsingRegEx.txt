@@ -1,0 +1,53 @@
+Introduction to RegEx
+
+Similar to File globbing within bash
+
+. - represents a single character
+$ grep g.m passwd
+$ grep s..t passwd
+$ grep 100. passwd
+
+^ - search the beginning of the line
+$ grep ^rpc passwd
+
+$ - search the end of line
+$ grep bash$ passwd
+
+[abc] - search for specified characters
+$ grep [v] passwd
+$ grep -i [v] passwd (case insensitive)
+$ grep [Vv] passwd
+$ grep ^[Aa].[Aa] passwd
+
+[^abc] - search for other characters, but not these
+$ grep ^[Aa].[Aa][^h] passwd
+
+* - matches zero or more of the preceding characters or expressions
+$ grep var* passwd
+
+man 7 regex
+
+Using Regex Tools
+
+sed - stream editor cmd can operate on files using regex
+$ cat passwd | sed -n '/nologin$/p' - prints lines that ends with nologin
+$ cat passwd | sed '/nologin$/d' - deletes the lines that ends with nologin and prints the remainaing output
+
+egrep - cmd that searches a specified file line by line returning lines that contain a pattern matching a given regular expression
+Equivallent to grep -E
+$ egrep 'bash$' passwd
+prints the lines that ends with bash
+$ egrep -c 'bash$' passwd
+prints the no.of lines that end with bash
+$ egrep '^rpc|nologin$' passwd
+prints the lines that start with rpc and lines that ends with nologin
+
+fgrep - searches based on the strings rather than the patterns.Also uses fileglobbing instead of regex
+Equivalent to grep -F
+$ fgrep -f strings passwd
+strings - a file that has patterns to search for
+$ cat strings
+root
+apache
+/home
+$ fgrep -f strings passwd*

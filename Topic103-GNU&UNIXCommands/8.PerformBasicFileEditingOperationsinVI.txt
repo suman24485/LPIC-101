@@ -1,0 +1,4 @@
+Using the Vi/Vim Text Editor
+ vimtutor - built-in tutorial system
+ added cheat sheet to the repo
+ 

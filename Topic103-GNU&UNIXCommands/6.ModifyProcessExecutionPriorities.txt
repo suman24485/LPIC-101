@@ -1,0 +1,27 @@
+Understanding and Changing Process Priorities
+
+Process Priorities
+
+- All processes need to use CPU time
+- Priority assignment dictates how much time CPU grants the process
+- Process priority(nice level) ranges from :
+    - -20 (highest priority)
+    - 19(lowest)
+    - 0 is the default for most processes
+- only root can lower the nice value of a process
+
+cmds to modify the nice levels
+
+nice - cmd used to define a new nice level before an application is started
+$ ps -o pid,nice,cmd,user
+PID   NI    CMD     USER
+
+$ watch -n 3 date &
+$ ps -o pid,nice,cmd,user
+$ kill -9 pid
+$ nice -n 5 watch -n 3 date &
+$ ps -o pid,nice,cmd,user
+
+renice - cmd used to change the nice level of an app that is already running
+$ sudo renice -n -1 <pid of the above watch cmd>
+$ top
