@@ -1,0 +1,57 @@
+################################
+Understanding Mount Points
+################################
+how mounting works
+/opt localted on localfs
+for more space on /opt we create a fs
+using the mount cmd
+mount /dev/sdb1 /opt
+to setup the mount automatically we need to change /etc/fstab
+LABEL=opt /opt ext4 defaults 1 2
+
+################################
+Mount and Unmount Filesystems
+################################
+# mount
+lists out every individual mount point
+# mount -t ext4
+this cmd gets all the mount relatd info from /etc/mtab
+this file is a symbolic link to file /proc/mounts
+/etc/mtab --> /proc/mounts
+# man mount
+line number 566
+[ESC]
+:566
+Filesystem independent mount options
+options
+  - auto -a
+  - noauto
+  - defaults - rw,suid,dev,exec,auto,nouser and async
+                rw - read write
+                suid - set user id
+                dev -
+                exec - any apps on the filesystem
+                nouser - root user only can mpount this fs
+                async - contents
+   - remount
+umount - cmd to unmount the fs. can sepcify either the device,label or mount point(directory).
+# mount -L OPT -t xfs -o rw,noexec /opt
+# ls /opt
+# touch /opt/test.txt
+# ls /opt
+# umount /opt
+# ls /opt
+# vi /etc/fstab
+LABEL=OPT /opt xfs rw,suid,exec,auto 1 2
+:wq!
+# mount -a or the above mount command
+# ls /opt
+# mount -t xfs
+# ls /media
+typically used for CDROM/DVDROM/Thumbdrives/PenDRIVES
+# mount /dev/sr0 /media
+# ls /media
+# mount /root/install.iso -o ro,loop /media
+# umount /media
+
+lFQUwNOyiY

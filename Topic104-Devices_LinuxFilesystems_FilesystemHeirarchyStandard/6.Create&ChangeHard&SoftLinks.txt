@@ -1,0 +1,33 @@
+#######################
+Understanding links
+#######################
+Symbolic links similar to shortcut on windows
+ cmds
+
+$ ln - creates a hard link to a file or directory
+      this type f link will only work on the file system of the originating file
+$ ln -s test.txt test.txt.lnk ==> creates a symbolic soft link to a file or directory
+                  links of this type can traverse file systems
+$ ls -l
+lrwxrwxrwx. - l indicates symbolic link
+
+unlink - removes a link from a file or folder
+
+Instructions & Tasks
+Make sure to review the man page for the ln command to know how to make a symbolic and hard link for files.
+
+You have been asked by your development team to help them structure their filesystem with links to various files. They would like the following items created on the system for their use:
+
+Create a symbolic link, /etc/redhat-release, to a file in the cloud_user's home directory called release.
+View the inodes to verify each file was created correctly.
+Create a directory called docs in the cloud_user home directory and copy the /etc/services files here.
+Link this new docs/services file to a file called services in the cloud_user home directory
+Display the inodes to verify they are the same
+Attempt to create a hard link from docs/services to /opt/services and note whether the link recognizes that each location is on a different filesystem.
+Create a symbolic link from /etc/redhat-release to /opt/release and view the inodes to see if symbolic links can be created across those same filesystems.
+Create a Symbolic (soft) Link
+Check the Inode Numbers for the Link
+Create a Hard Link
+Attempt to Create a Hard Link Across File Systems
+
+Attempt to Create a Symbolic Link Across File Systems

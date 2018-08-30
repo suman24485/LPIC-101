@@ -1,0 +1,109 @@
+#####################################
+Basic File and Folder Permissions
+#####################################
+Permissions are broken into three categories
+user group other/world
+
+Symbolic Permissions
+r - Read
+w - write
+x - execute
+- - no permission
+
+Octal Permissions
+4 - read
+2 - write
+1 - execute
+0 - no permission
+
+any file on linux follow below format
+  U  G  O
+drwxrwxrwx - d indicates directory
+-rwxrwxrwx - - indicates normal file
+brwxrwxrwx - b block devices
+crwxrwxrwx - c character devices - terminals,mice,keyboard and video monitors
+
+#####################################
+Modify Basic Access Modes
+#####################################
+# ls -l
+# chmod o-r <filename>
+removing  the read permission for 'o'thers
+# chmod -R o-r ./*
+# chmod 600 secret.txt
+# ls -l
+
+chown
+longer way to change owner of a file
+# chown <user:group> <filename>
+# chown :research secret.txt
+# ls -l
+Shoter way
+# chgrp research code_ids.txt
+# ls -l
+# chown eva:kenny reports.csv
+
+#####################################
+Modifying advanced permissions
+#####################################
+--SUID--
+# ls -l /etc/passwd
+how passwd cmd works
+# /usr/bin/passwd
+ls -lrt /usr/bin/passwd
+-rw's'r-xr--    /usr/bin/passwd
+s - this is setUID bit
+this lets the user program temporary access and updates the /etc/passwd file
+
+# ls
+# ls -l test.sh
+rwxrw-r--
+# ./test.sh
+# chmod 760 test.sh ( same as # chmod 0760 test.sh)
+rwxrw---- test.sh
+# chmod 4764 test.sh
+# ls -lrt test.sh
+-rwsrw-r-- test.sh
+# chmod 0764 test.sh
+# chmod u+s test.sh
+# chmod u-s test.sh
+
+---SGID bit-- - set group ID
+# ls -l /usr/bin/write
+-rwxr-'s'r-x root tty <timestamp> /usr/bin/write
+# ls -ld /srv/team
+# groups - shows all the groups that the current is part of
+# cmod -R 2770 <filename>
+2 - SGID bit
+
+STICKY bit - this lets only the user of the file to remove it
+# ls -ld /tmp
+drwxrwxrw't'
+# chmod 1777 /src/sticky
+
+########################################
+Default File and Folder Permissions
+########################################
+$ umask shows the current umask settings.
+can also be used to set a new umask value for the current shell session
+0002
+Default permissions
+777 = defaul fr directories
+666 = default for files
+
+umask value - subract the umask value from the default permission to get the currently configured permission value
+permanent configuration
+/etc/bashrc - umask set for whole system
+/home/[user]/.bashrc - umask set for individual user
+
+# mkdir mask.d
+# ls -lrt mask.d
+# touch mask
+# ls -ld mask
+check the above with both normal user and root user
+
+$ umask u=rwx,g=,o=
+$ umask
+$ toouch new
+$ mkdir mask2
+$ ls -ld

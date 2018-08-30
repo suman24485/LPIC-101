@@ -1,0 +1,45 @@
+The Role of the Linux File System
+- Where computer data is stored on a storage device within a certain manner
+      - data is organized and easily located
+      - data can be saved in a persistent manner
+      - data integrity is preserved
+      - data can be retrieved by the user at a later point of time
+
+Std layout of linux file system
+FHS
+- http://www.pathname.com/fhs/
+Directory Structure
+- inverted tree with a single root
+- case sensitive
+- Paths are delimited by "/"
+- any folder or file whose name is preceded by . are hidden from normal view
+- a single refers to the current directory
+
+/
+  bin
+  boot
+  dev
+  etc - configuration files for  most of the system services
+  home
+  lib
+  lib64
+  media - CDROMS,DVDROMS,Mice,Keyboard,USB
+  mnt
+  opt
+  proc
+  root
+  sbin - sysadmin tools are located
+  srv - webservers
+  sys
+  tmp
+  usr
+  var
+
+################################################
+Finding commands on a linux system
+################################################
+$ locate passwd
+$ sudo updatedb - updates the database that the locate cmd uses
+$ whereis - locates binary source and/or manual pages for a cmd
+$ locate updatedb.conf
+$ less updatedb.conf

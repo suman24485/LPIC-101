@@ -1,0 +1,79 @@
+##############################
+Disk Space Usage
+##############################
+# ls -lh
+(human readable output)
+# df - disk free cmd - shows the available space on the file system
+# df -h
+# df -h /
+# df -h /dev/xvda1
+# df --total -h
+# free -m
+
+du - disk usage cmd - displays the amount of dsk space in use
+# du
+# du -h
+# du -sh (just the summary)
+# du -sh /tmp
+# du -sh /home/user
+# du -h --max-depth=2 etc
+
+Every file/folder has a reference in the Filesystem
+inmost of the FS that reference is called "Inode"
+An inode stores info abt files and folders suchas permissions
+ownership and file type.Most file systems contain a max number of nodes that it can obtain
+# ls -i
+# df -i
+# du --inode <directoryname>
+
+############################################################
+Maintaining a Filesystem with different utilities
+############################################################
+fsck - File system check utility - can be invked via cmd line and configured in /etc/fstab
+
+similar scan disk or check disk utilities on windows
+# lsblk -f
+# fsck -r <label or device>
+# fsck -r LABEL=SRV
+Devices must be unmounted before a check can run
+# umount /srv
+# fsck -r LABEL=SRV
+# vi /etc/fstab
+last column is to configure fsck after system reboot
+it should be set to 1 to run the fsck
+
+e2fsck - check utility for ext2,ext3 and ext4 filessystems
+ca nbe used to replay the filesystem's journal
+# e2fsck /dev/sda1
+# e2fsck -f /dev/sda1
+# e2fsck -p /dev/sda1
+
+mk2efs - utility for creating new ext2,ext3 or ext4 file systems
+# mke2fs
+# less /etc/mke2fs
+the defaults mentioned in this file are the ones mentioned in /etc/fstab
+# mke2fs -t ext4 -L EXTRA /dev/sdb1
+
+tune2fs - utility used to adjust parameters on a ext2,ext3 or ext4 file system
+# tune2fs -l /dev/sdb1 | less
+Errors behaviour : Continue
+# tune2fs -i 3w /dev/sdb1
+# tune2fs -l /dev/sdb1 | less
+Next Check After:
+
+# mount /dev/sdb1 /src/extra
+# ls /srv/extra
+
+xfs_repair - used to repair xfs file systems
+# xfs_repair /dev/vdb1
+
+xfs_fsr - reorganizers data stored in blocks on an XFS file system
+similar to running a defrag utility on an MS windows FS
+# xfs_fsr /opt
+
+xfs_db - utility to debug and XFS file system
+runs interactively
+# xfs_db /dev/vdb1
+xfs_db> ?
+xfs_db> frag (to basically check filesystems framgmentation)
+xfs_db> freesp (free space onthis disk)

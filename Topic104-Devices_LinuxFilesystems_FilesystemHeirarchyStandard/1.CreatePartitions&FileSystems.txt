@@ -1,0 +1,163 @@
+########################
+Legacy MBR Partitions
+########################
+Two Hdd with 1GB
+$ lsblk - cmd to list out block devices (sucha as harddrives)
+NAME      MAJ:MIN   RM  SIZE RO   TYPE MOUNTPOINT
+sda
+sr0
+vda
+  vda1
+  vda2
+    VolGroup00-LogVol00
+    volgRoup00-LogVol01
+vdb
+
+# fdisk - legacy cmd used to create partitions of the MBR type
+# fdisk /dev/sda (interactive mode)
+Command (m for help) : m
+lists out the available options
+Command (m for help) : p
+Command (m for help) : n
+w
+# lsblk
+# fdisk -l /dev/sda
+
+parted - modern cmd used to create partitions of MBR or GPT types.
+Lets create another partition on vdb using parted cmd
+# parted /dev/vdb
+(parted) help
+(parted) p
+(parted) mklabel msdos
+(parted) p
+(parted) mkpart
+Type of partition? primary or extended? Primary
+FS type? [ext2]?
+Start ? 1
+End ? 1000
+(parted) p
+(parted) quit
+# lsblk
+
+Partition IDs
+83 - standard Linux filesystems
+82 - Linux Swap partitions
+8e - Linux LVM Volumes
+
+########################
+GPT Partitions
+########################
+# lsblk (to check which kind of disk we are using)
+MOUNTPOINT /boot/efi
+# fdisk /dev/vda
+# gdisk /dev/vda
+Command (? for help): n
+Partition number (1-128,default 1):
+First Sector :
+Last Sector: +500M
+Current type is 'Linux Filesystem'
+Hex code or GUID (L to show codes, ENter = 8300):
+
+Command (? for help): p
+Command (? for help): w
+
+# lsblk
+
+# parted /dev/sdb
+(parted) mklabel gpt
+(parted) mkpart
+Partition name ? []? optional
+File system type ? [ext2]?
+Start? 1M
+End? 500M
+(parted) p
+(parted) quit
+
+# lsblk
+
+########################
+Swap Partitions
+########################
+swap is used when the RAM is nearly full.
+kernel moves the idle processes into swap.
+swap partition instead of swap file even the performance is little slower
+
+# lsblk
+we can use fdisk,gdisk or parted depending on the existing disk format
+# gdisk /dev/sda
+Command : p
+Command : n
+Partition number (2-128,default 2):
+First Sector :
+Last Sector: +500M
+Current type is 'Linux Filesystem'
+Hex code or GUID (L to show codes, ENter = 8300):8200 (since this is a swap partition)
+
+Command : p
+Command : w
+Y
+
+# lsblk
+
+To use this partition we need put swap partition on top of this
+# mkswap -L SWAP /dev/sda2 (labelling a swap partition)
+# free
+# free -m
+# cat /etc/fstab
+# swapon -L SWAP (turning on the Swap using UUID9using -U option) or the LABEL using -L)
+# free -m
+# lsblk
+after reboot the swap will be off be default
+to make it automated we run the below changes
+# vi /etc/fstab
+add the below line to the file
+LABEL=SWAP  swap  swap  defaults  0 0
+:wq!
+to check the above changes we dont need to reboot
+instead we can use swapoff and swapon
+# swapoff -L SWAP
+# free
+# swapon -a
+# free -m
+
+################################################
+Creating Linux File Systems
+################################################
+Primary Linux File Systems:
+- Non-Journaling
+    - ext2 - legacy Linux Filessystem released in 1993
+           - second extented filesystem
+- Journaling
+    - Uses a journal to keep track of changes that have not yet been written to the FS
+    - Examples:
+          - ext3 -
+          - ext4 - added extra features,meant to be a stop-gap until better solution comes along
+          - XFS - ported to linux in 2001 and it is default filesystem for redhat7 and centos7
+
+Btrfs - butter fs / better fs
+- Uses CoW (Copy on Write)
+  whenever a file is changed,btrfs creates a copy of the file before writing the changes to the original
+- Uses subvolumes
+  similar to a partition
+  can be accessed like a directory
+- Snapshtos
+  subvolumes that reference the original data's location,includes metadata and directory structure
+
+FAT File Systems
+- File Allocation Table (FAT)
+    Linux uses VFAT (Virtual FAT) which allows for long filenames
+    EFI boot partitions need to use a FAT partition(on linux this will be vfat)
+- ExFat - Extended FAT File system
+    Allows for files larger than 2GB in size
+    Primarily used for external disk,thumb drives
+
+File system utilities
+# lsblk
+# mkfs.ext4 -L SRV /dev/sda1
+# lsblk -f
+
+# blkid /dev/sda1
+LABEL="" UUID="" TYPE=""
+
+#mkfs.xfs -L OPT /dev/vdb1
+#blkid /dev/vdb1
