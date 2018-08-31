@@ -14,7 +14,7 @@ whole purpose of bootimg is to get the core.img loaded
 Stage 2
 core.img pur is to locate actual boot partition of the system
 /boot/grub
-grub.conf/menu.lst (redhatdistro/debdistro)
+grub.conf or menu.lst (redhatdistro/debdistro)
 device.map - indicates which  drive contains the actual kernel and the OS that needs to be booted
 
 check grub.conf file

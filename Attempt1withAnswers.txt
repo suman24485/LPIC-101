@@ -1,0 +1,920 @@
+
+suman25485@gmail.com Support Summer Content Releases
+24
+182
+
+Home
+
+Training
+
+Cloud Servers
+
+Quick Training
+
+Hands-on Labs
+
+Learning Paths
+
+Community
+75.0%
+Great Start!
+You did not pass the challenge on this attempt. This challenge is now locked and can be unlocked by using gems or by completing all of the recommended activities.
+lock This challenge is now locked.
+Linux Academy
+Report Card
+Expectations
+Score
+1. Demonstrate a Conceptual understanding of topics covered in the LPIC-1 Exam 101 test
+75 %
+Next Challenge:
+
+High Availability, Fault Tolerance, and Scalability
+Check out a Learning Activity
+Exam Breakdown
+Demonstrate a Conceptual understanding of topics covered in the LPIC-1 Exam 101 test
+1.
+uniq -d will:
+
+A. Print only duplicate lines in a file.
+
+done Correct
+B. Sets a different delimiter for the output.
+
+C. Print only unique lines in a file.
+
+D. Both print only unique lines in a file and print only duplicate lines in a file.
+
+2.
+Which man page section is for user executable programs and utilities?
+
+A. 8
+
+B. 3
+
+C. 1
+
+done Correct
+D. 2
+
+3.
+The sticky bit, if enabled as a permission, has what effect?
+
+A. Prevents any user, including the owner of the directory of the file, from modifying or removing the file
+
+B. Both only the directory's owner or file's owner can rename or delete files (chmod +t filename or chmod 1000) instead of anybody with write permissions and prevents any user, including the owner of the directory of the file, from modifying or removing the file
+
+C. Only the directory's owner or file's owner can rename or delete files (chmod +t filename or chmod 1000) instead of anybody with write permissions
+
+done Correct
+D. Only the group owner can modify files with the sticky bit.
+
+4.
+How would you set read/write/execute for the owner and no permissions for group/world?
+
+A. chmod 000 file.txt
+
+B. chmod 477 file.txt
+
+C. chmod 700 file.txt
+
+done Correct
+D. chmod 755 file.txt
+
+5.
+While using fdisk, which key creates a new partition?
+
+A. n
+
+done Correct
+B. p
+
+C. d
+
+D. l
+
+6.
+Which of the following is a hypervisor for running Linux virtual machines?
+
+A. Docker
+
+B. kvm
+
+done Correct
+C. LXD
+
+D. LXC
+
+7.
+While in vi command mode you type 3yy what is the result?
+
+A. Will paste three lines starting with the line your cursor is on.
+
+B. You will type the characters '3yy' into the document.
+
+C. Will cut three lines starting with the line your cursor is on.
+
+D. Will yank 3 lines starting with the line your cursor is on.
+
+done Correct
+8.
+You downloaded an ISO file of a Linux distribution from the Internet. You want to verify it's SHA 256 signature to make sure that your file is not corrupt. Which command would you use?
+
+A. sha256sum linux.iso
+
+close Your Answer
+forum
+Why is this incorrect?
+This will just display the checksum for the iso file. https://linuxacademy.com/cp/courses/lesson/course/2165/lesson/2/module/214
+
+B. md5sum -c file.iso
+
+C. sha256sum -c linux.iso
+
+done Correct
+forum
+Why is this correct?
+This is the correct answer. https://linuxacademy.com/cp/courses/lesson/course/2165/lesson/2/module/214
+
+D. sha512sum -c file.iso
+
+9.
+You have a file named: important.tar.bz2
+
+Which command will extract the contents of this file?
+
+A. tar -xfj important.tar.bz2
+
+done Correct
+B. tar -xfJ important.tar.bz2
+
+C. tar -xfz important.tar.bz2
+
+D. tar -xf important.tar.bz2
+
+10.
+Runlevel 2 provides what system environment?
+
+A. This is the desktop environment runlevel.
+
+B. This is the multi-user mode with networking.
+
+C. This runlevel reboots the system.
+
+D. This is the multi-user mode with no networking.
+
+done Correct
+11.
+The command shutdown -k
+
+A. Only sends a warning message but does not shut down the system.
+
+done Correct
+B. Shuts down the system after sending a warning message.
+
+C. Immediately shuts down the system.
+
+D. Halts the system after shutdown.
+
+12.
+If an executable file has the setuid octal bit of 4 applied what is the result?
+
+A. The file when executed will only run if the user ID is the same as the user's ID who owns the file
+
+close Your Answer
+forum
+Why is this incorrect?
+That is not how the suid bit works. https://linuxacademy.com/cp/courses/lesson/course/2183/lesson/3/module/214
+
+B. The file can be modified but not executed
+
+C. No such thing as a sticky bit.
+
+D. The file is executed with the same permissions as the user/group who owns the file
+
+done Correct
+forum
+Why is this correct?
+This is correct. https://linuxacademy.com/cp/courses/lesson/course/2183/lesson/3/module/214
+
+13.
+Which file system contains information about interrupts, IRQ's, ioports, and dma addresses?
+
+A. /sys
+
+B. /etc
+
+C. /proc
+
+done Correct
+D. /var
+
+14.
+Which key, in command mode, would send the cursor to the end of the file in vim?
+
+A. j
+
+close Your Answer
+forum
+Why is this incorrect?
+This will move the cursor down, but only one line at a time. https://linuxacademy.com/cp/courses/lesson/course/2175/lesson/1/module/214
+
+B. h
+
+C. G
+
+done Correct
+forum
+Why is this correct?
+This is correct. https://linuxacademy.com/cp/courses/lesson/course/2175/lesson/1/module/214
+
+D. gg
+
+15.
+You need to create a shared workspace for your accounting department. Every time a user inside a directory creates a file, that file or sub-directory needs to inherit the parent directory's group ID. How would you accomplish this?
+
+A. Set a cronjob to change permissions
+
+B. Write a script that changes the group ID everytime a new file is created
+
+C. Enable the group creation sticky bit
+
+close Your Answer
+forum
+Why is this incorrect?
+This is not how the sticky bit works. https://linuxacademy.com/cp/courses/lesson/course/2183/lesson/3/module/214
+
+D. Set the setgid flag on the parent directory (chmod g+s parent_directory)
+
+done Correct
+forum
+Why is this correct?
+This answer will achieve the desired results. https://linuxacademy.com/cp/courses/lesson/course/2183/lesson/3/module/214
+
+16.
+You've been tasked to manage an older Linux system running GRUB/GRUB-legacy. You're attempting to make kernel changes to allow the system to boot into an alternate kernel version. Which configuration file needs to be edited?
+
+A. /boot/grub/menu.lst
+
+done Correct
+B. /etc/grub/grub.cfg
+
+C. /boot/grub/grub.cfg
+
+D. /etc/grub/menu.lst
+
+17.
+What will the following command accomplish? dpkg -i file.deb
+
+A. Will install file.deb package.
+
+done Correct
+B. Removes a debian package.
+
+C. Lists all the files inside of file.deb package.
+
+D. Lists the status of a package.
+
+18.
+Which grep variant will interpret the pattern as plain text strings (interpret the pattern literally)?
+
+A. egrep or grep -e
+
+B. Both egrep or grep -e and fgrep or grep -F
+
+C. fgrep or grep -F
+
+done Correct
+D. fgrep or grep -f
+
+19.
+What is the software called that will run virtual machines on a host system?
+
+A. Docker
+
+B. LXD
+
+C. hypervisor
+
+done Correct
+D. container
+
+20.
+What is the file system format needed for /boot/efi?
+
+A. ext2
+
+B. LVM
+
+C. vfat
+
+done Correct
+D. xfs
+
+21.
+The -t flag when passed to mkfs requires you to:
+
+A. Specify the file system type.
+
+done Correct
+B. Automatically detects the file system type for the device.
+
+C. Allows you to toggle the boot flag.
+
+D. Check the device for bad blogs before building the file system.
+
+22.
+A virtual machine has just had a new disk attached and another administrator has created a new partition on this disk, which happens to be the third disk on the system now. Which of the following is the name of this disk?
+
+A. /dev/vdc3
+
+B. /dev/vdc1
+
+done Correct
+C. /dev/vdd3
+
+D. /dev/vdb1
+
+23.
+Which of the following is a platform for containers in Linux?
+
+A. kvm
+
+B. xen
+
+C. LXC
+
+done Correct
+D. VirtualBox
+
+24.
+/etc/passwd has the following syntax:
+
+linuxacademy:x:501:10::/home/linuxacademy:/bin/bash
+
+What will cut -f1 -d: /etc/passwd send to standard output?
+
+A. It will display the shell type column and only the shell type from /etc/passwd
+
+B. It will display the username and password fields.
+
+C. It will display all the usernames and only the users names from /etc/passwd
+
+done Correct
+D. Both it will display all the usernames and only the users names from /etc/passwd and it will display the shell type column and only the shell type from /etc/passwd
+
+25.
+Where is the default umask value set for the entire system?
+
+A. /etc/profile
+
+B. /etc/bashrc
+
+done Correct
+C. /etc/umask.
+
+D. /home/user/.bashrc
+
+26.
+While attempting to shut down the Apache service with "systemctl stop httpd" you notice that there are httpd processes that are refusing to shut down. How might you send a SIGTERM signal to try and gently stop the processes to all httpd processes?
+
+A. pgrep httpd
+
+B. kill -9 httpd
+
+C. pkill httpd
+
+done Correct
+forum
+Why is this correct?
+This is correct. https://linuxacademy.com/cp/courses/lesson/course/2170/lesson/2/module/214
+
+D. kill -15 httpd
+
+close Your Answer
+forum
+Why is this incorrect?
+The kill command will require a PID to target, and a graceful shutdown has already failed. https://linuxacademy.com/cp/courses/lesson/course/2170/lesson/2/module/214
+
+27.
+When creating file permissions, the permission designated by the number '4' equates to what permission type?
+
+A. read
+
+done Correct
+B. execute
+
+C. special
+
+D. write
+
+28.
+If you want a command or process to continue running after exiting the system, which of these would you add to the front of the command?
+
+A. bg
+
+B. nohup
+
+done Correct
+C. fg
+
+D. &
+
+29.
+Where are the repository file(s) stored on a Linux system that uses yum for package management?
+
+A. /usr/bin/yum
+
+B. /etc/yum.repos.d
+
+done Correct
+C. /etc/rpm
+
+D. /etc/apt/sources.list
+
+30.
+cat /etc/passwd | grep [a-z]ot will send what to standard output?
+
+A. All character sequences that have any letter from a-z as the first two characters.
+
+B. This is not a valid grep statement.
+
+C. Will display either 'aot' or 'zot' to the screen.
+
+D. All lower case alphabetical three character sequences that end with the character sequence 'ot'.
+
+done Correct
+31.
+Which command will show you your total current inode usage?
+
+A. ls -i
+
+B. du --inode
+
+close Your Answer
+forum
+Why is this incorrect?
+This will list the total inodes in use in a given directory. https://linuxacademy.com/cp/courses/lesson/course/2180/lesson/1/module/214
+
+C. df --inode
+
+done Correct
+forum
+Why is this correct?
+This is correct. https://linuxacademy.com/cp/courses/lesson/course/2180/lesson/1/module/214
+
+D. du -i
+
+32.
+What does the modprobe command do?
+
+A. It removes kernel modules from the running system.
+
+done Correct
+forum
+Why is this correct?
+This is one of the tasks that this command performs. https://linuxacademy.com/cp/courses/lesson/course/2144/lesson/2/module/214
+
+B. It checks on hardware modules attached to the computer.
+
+C. It loads kernel modules for the kernel to use.
+
+done Correct
+D. It will list out all of the currently loaded kernel modules.
+
+33.
+Which command would you use to modify the amount of time between file system checks on and EXT4 file system?
+
+A. tune2fs -c
+
+B. mke2fs
+
+C. xfs_db
+
+D. tune2fs -i
+
+done Correct
+34.
+You just ran the history command, and saw the following as part of the output:
+
+996 yum check-update
+
+How could you re-run this command, without typing it out again?
+
+A. \996
+
+B. !996
+
+done Correct
+C. 996
+
+D. history 996
+
+35.
+On a disk using LVM, which layer contains the file system?
+
+A. lg (logical volume)
+
+done Correct
+B. partition
+
+C. vg (volume group)
+
+D. pv (physical volume)
+
+36.
+Which man page section is for system administrator utilities?
+
+A. 1
+
+B. 6
+
+C. 5
+
+D. 8
+
+done Correct
+37.
+Which command will show you how long your system has been running?
+
+A. uptime
+
+done Correct
+B. vmstat
+
+C. iostat
+
+D. time
+
+38.
+Which numeric permission bit is used for read?
+
+A. 7
+
+B. 2
+
+C. 4
+
+done Correct
+D. 1
+
+39.
+You have the following line in an /etc/fstab file:
+
+LABEL=HOME /home xfs defaults 0 0
+
+You want to enable fsck for this partition when the system deems it necessary. What change would you apply to this line to enable this?
+
+A. LABEL=HOME /home xfs defaults 1 0
+
+B. fsck can not be enabled from the /etc/fstab file.
+
+C. LABEL=HOME /home xfs defaults 0 1
+
+done Correct
+D. LABEL=HOME /home xfs defaults,fsck 0 0
+
+40.
+You are on a modern Linux system that is using systemd. How do you configure the system to boot into an environment that allows multiple users to log in, has networking, but no graphical desktop?
+
+A. systemctl set-default multi-user.target
+
+done Correct
+forum
+Why is this correct?
+This is the correct answer. https://linuxacademy.com/cp/courses/lesson/course/2146/lesson/4/module/214
+
+B. Edit the /etcinittab file, and change the default runlevel to '3'
+
+C. systemctl get-default multi-user.target
+
+close Your Answer
+forum
+Why is this incorrect?
+This is not how this command works. https://linuxacademy.com/cp/courses/lesson/course/2146/lesson/4/module/214
+
+D. upstart set-default multi-user.target
+
+41.
+Which of the answers below BEST describes what happens to the file called 'file.txt' when the following command is run? echo "hello" >> file.txt
+
+A. Will append hello at the end of file.txt. If the file does not exist, it will create the file and place the text within it.
+
+done Correct
+B. Places the 'hello' text at the beginning of the file, moving any existing content down underneath
+
+C. Will recreate file.txt (removing the file if it already existed) and place hello at the beginning of the file
+
+D. No listed answer
+
+42.
+What directory contains all the system's primary unit configuration files?
+
+A. /etc/system/systemd
+
+close Your Answer
+forum
+Why is this incorrect?
+This path is incorrect. https://linuxacademy.com/cp/courses/lesson/course/2146/lesson/4/module/214
+
+B. /usr/lib/systemd/system
+
+done Correct
+forum
+Why is this correct?
+This is correct. https://linuxacademy.com/cp/courses/lesson/course/2146/lesson/4/module/214
+
+C. /etc/systemd/system
+
+D. /usr/lib/system/systemd
+
+43.
+You have an rpm package on your system that you need to upgrade. Which command would you use?
+
+A. rpm -i software.rpm
+
+B. rpm -q software.rpm
+
+C. rpm -e software.rpm
+
+D. rpm -U software.rpm
+
+done Correct
+44.
+How would you extract information about the boot process?
+
+A. tail -f /var/log/syslog
+
+B. less /var/log/syslog
+
+C. Use the 'dmesg' command
+
+done Correct
+D. tail -f /var/log/messages
+
+45.
+You're working on a Linux system with systemd as it's primary init manager. To change into the graphical target, what would you do?
+
+A. systemctl isolate graphical
+
+B. systemctl init 5
+
+C. systemctl init graphical.target
+
+D. systemctl isolate graphical.target
+
+done Correct
+46.
+Which of the following will verify the signature on a package to determine its integrity and origin?
+
+A. rpm -ql
+
+B. rpm -sig
+
+C. rpm --checksig
+
+done Correct
+forum
+Why is this correct?
+This is the correct answer. https://linuxacademy.com/cp/courses/lesson/course/2160/lesson/2/module/214
+
+D. rpm -check
+
+close Your Answer
+forum
+Why is this incorrect?
+This is not a valid option. https://linuxacademy.com/cp/courses/lesson/course/2160/lesson/2/module/214
+
+47.
+Which character sequence will redirect standard output to standard error?
+
+A. 2>
+
+B. >>
+
+close Your Answer
+forum
+Why is this incorrect?
+This will append stdout to a file. https://linuxacademy.com/cp/courses/lesson/course/2168/lesson/2/module/214
+
+C. >>&
+
+D. 1>&2
+
+done Correct
+forum
+Why is this correct?
+This is correct. https://linuxacademy.com/cp/courses/lesson/course/2168/lesson/2/module/214
+
+48.
+Output from an lsblk -f command on a file system that you suspect to be damaged appears below:
+
+sdd
+└─sdd1 xfs 6b4a59ad-e496-4a63-9411-7bc9350000ae /srv
+
+What command would you use to try and repair the file system?
+
+A. tune2fs -e /dev/sdd1
+
+B. xfs_frs /dev/sdd1
+
+C. xfs_repair /dev/sdd1
+
+done Correct
+D. e2fsck -p /dev/sdd1
+
+49.
+chmod 755 file.txt will:
+
+A. Set read/write/execute for the everyone else, read for the group, and read/execute for the owner.
+
+B. Set read/write/execute for the owner, read for the group, and read/execute for everyone else.
+
+C. Set the file permissions on file.txt to read/write/execute for the owner and read/execute for the group and everyone else.
+
+done Correct
+D. Set read/write/execute for owner and execute/write for the group and everyone else.
+
+50.
+You need to create a file full of zeros that is 1 GB in size. Which command will perform this action? Choose the "best" possible answer.
+
+A. dd if=/dev/zero of=/dev/zero
+
+B. dd if=/dev/zero of=filename bs=1M count=1024
+
+done Correct
+forum
+Why is this correct?
+This is correct. https://linuxacademy.com/cp/courses/lesson/course/2167/lesson/3/module/214
+
+C. dd if=/dev/sdf1 of=/root/filename size=1M bs=1024
+
+close Your Answer
+forum
+Why is this incorrect?
+This could possibly work, but data is being pulled in from a partition, which may not be safe. https://linuxacademy.com/cp/courses/lesson/course/2167/lesson/3/module/214
+
+D. dd if=/dev/zero of=filename size=1G
+
+51.
+Which two commands could you use to search the manual pages for a particular keyword?
+
+A. apropos
+
+done Correct
+B. find
+
+C. locate
+
+D. man -k
+
+done Correct
+52.
+You have just created a new swap partition, and used the mkswap command to apply a swap file system to the disk. What would you do next to use the newly created swap space?
+
+A. Run swapon to enable the new swap space.
+
+done Correct
+B. Run the modprobe command to load the swap space.
+
+C. Reboot the system.
+
+D. Run the mkswap command.
+
+53.
+The command cat /etc/passwd | grep ^root will:
+
+A. Display all the lines in the file with the pattern root.
+
+B. Display all lines in the file that do not have the pattern root.
+
+C. Display all the lines in the file that start with the pattern root.
+
+done Correct
+D. Display all lines in the file that does not have the letter 'r'
+
+54.
+What happens when you set the setuid on a directory?
+
+A. Anyone whose UID does not match that of the owner of the directory is not permitted to open the directory.
+
+close Your Answer
+forum
+Why is this incorrect?
+This is not how this works on directories. https://linuxacademy.com/cp/courses/lesson/course/2183/lesson/3/module/214
+
+B. When the file is executed the same permissions are applied as the owner who owns the file
+
+C. The setuid bit cannot be set to a directory
+
+D. It is ignored
+
+done Correct
+forum
+Why is this correct?
+This is the correct answer. https://linuxacademy.com/cp/courses/lesson/course/2183/lesson/3/module/214
+
+55.
+You have just acquired software from a third-party vendor. Where is the best place to install it?
+
+A. /var
+
+B. /home
+
+C. /
+
+D. /opt
+
+done Correct
+56.
+Which command will find files modified at least 3 days ago in your current working directory?
+
+A. find . -mtime +3
+
+done Correct
+forum
+Why is this correct?
+This is correct. https://linuxacademy.com/cp/courses/lesson/course/2167/lesson/4/module/214
+
+B. find /home -mtime -3
+
+C. find . +mtime -3
+
+D. find . -mtime -3
+
+close Your Answer
+forum
+Why is this incorrect?
+This is not how you specify the amount of time. https://linuxacademy.com/cp/courses/lesson/course/2167/lesson/4/module/214
+
+57.
+What option would you use to ensure that the 'rm' command will prompt you before removing a file?
+
+A. rm -d
+
+B. rm -f
+
+C. rm -r
+
+D. rm -i
+
+done Correct
+58.
+Which commands are used to search and kill processes based on patterns or regular expressions instead of process ID? Choose two.
+
+A. kill
+
+B. ps ax | grep
+
+close Your Answer
+forum
+Why is this incorrect?
+This will only list out a specific process (that has not been mentioned) and there is a more efficient command to use. https://linuxacademy.com/cp/courses/lesson/course/2170/lesson/2/module/214
+
+C. pgrep
+
+done Correct
+forum
+Why is this correct?
+This is correct. https://linuxacademy.com/cp/courses/lesson/course/2170/lesson/2/module/214
+
+D. pkill
+
+done Correct
+59.
+You have a text file full of terms called terms.txt that you would like to use as a basis to search other files, such as a text file named 'somefile'. Which two commands would be used to accomplish this task?
+
+A. fgrep -f terms.txt somefile
+
+done Correct
+B. grep -f terms.txt somefile
+
+C. egrep terms.txt somefile
+
+D. grep -F -f terms.txt somefile
+
+done Correct
+60.
+You have a directory set up for group collaboration. What permissions would you apply to it to keep others out, while the group retains ownership of the contents?
+
+A. chmod 2770
+
+done Correct
+B. chmod 4770
+
+C. chmod u+s,g+s,o=
+
+D. chmod 1770
+
+
+Contact usContact us!
+We're not around, but we'd love to chat another time. Leave us a message and we'll get back in touch as soon as we're able!
+
+SUMAN AMPAGOWNI
+click here and type your Name
+
+suman25485@gmail.com
+click here and type your Email
+We're not around, but we'd love to chat another time. Leave us a message and we'll get back in touch as soon as we're able!
+We're not around, but we'd love to chat another time. Leave us a message and we'll get back in touch as soon as we're able!
+Send
+Powered by Olark
