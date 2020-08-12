@@ -24,7 +24,6 @@ Pseudo Filesystem
       #cd xfs
       #cd xvda1/
       error log stats
-      #cd stats
       #ls
       stats stats_clear
       #cat stats
@@ -51,7 +50,7 @@ kernel release version along with machine type(bitrate)
 #uname -a
 shows everything abt the machine
 
-modules
+kernel modules
 #lsmod (list modules)
 Module    Size    Used by
 
@@ -69,12 +68,14 @@ udev - device manager for linux kernel links information on
 
 New Hardware is attached to system
 Udev(detects the h/w and sends info to /dev(pseudo filesystem) through Databus service)
-Udev---- D-Bus ----> /dev <---D-Bus---> #lsblk(user command)
+Udev---- D-Bus(data bus) ----> /dev <---D-Bus---> #lsblk(user command - lists all block devices)
 
 #ls /dev - contains info abt the processorsinfo, mem,network info,harddrive,tty locations
 #ls /dev/cpu - contains  the info about the no.of cores
 #ls /dev/cpu/0/
-#ls /dev/dri - video drivers
+#ls /dev/dri - video drivers (direct rendering interface)
+
+"nvm"
 
 Attach a USB and run the below commands
 #ls /dev/

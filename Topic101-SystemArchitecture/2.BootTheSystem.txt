@@ -2,20 +2,20 @@
 Linux boot process sequence
 ############################
 System Starts --> BIOS --> Boot Sector --> Linux Kernel -->
-- Lnx will load an initial RAM disk which contains a set of device drivers
+-> Lnx will load an initial RAM disk which contains a set of device drivers
 to eventually mount the filesystem from the harddisk
-- then the kernel starts off the initialization system
+-> then the kernel starts off the initialization system
+-> Once the initilization system starts kernel continues to load the services and initial RAM disk will be rmoved
 
-- Once the initilization system starts kernel continues to load the services and initial RAM disk will be rmoved
-
+GRUB
 Boot Logs
 Logs generated during computer boot up
-volatile
-generated from an area kernel ring buffer - area of RAM that kernel writes all of the system msgs to
+these logs are volatile
+these logs are generated from an area kernel ring buffer - area of RAM that kernel writes all of the system msgs to
 
 dmesg
 traditional utility used for viewing the kernel ring buffer
-#dmesg
+#dmesg - typical output is low-level messages
 
 journctl
 systemd utility to view the kernel ring buffer within the systemd journal
@@ -39,7 +39,7 @@ Runlevels:
 5 - Multi-user,networking and graphical desktop
 6 - reboot
 
-inittab
+cat /etc/inittab
 <identifier>:<runlevel>:<action>:<process>
 id:3:initdefault:
 si::sysinit:/etc/rc.d/rc.sysinit
@@ -52,10 +52,19 @@ l3:0:wait/etc/rc.d/rc 0
 l4:0:wait/etc/rc.d/rc 0
 l5:0:wait/etc/rc.d/rc 0
 
+Sample Init boot sequence
+1.Boot disk is found by boot loader
+2.Kernel and initial RAM disk are loaded
+3.Kernel pulls initial drivers and setup tools from RAM disk
+4.Kernel hands the system over to /sbin/init
+5.init performs system maintenance tasks from /etc/rc.d/rc.sysinit
+6.init has read the initdefault line in /etc/inittab and enters runlevel 3
+7.Now the system is READY FOR USE
+
 #ls /etc/init.d ( on debian)
 #ls /etc/rc.d (on redhat)
 rc - run commands
-init.d rc rc0.d to rc6.d
+init.d rc rc0.d to rc6.d(pertains to specific run levels)
 rc.local - customized by admin to start additional services
 rc.sysinit
 
@@ -107,11 +116,11 @@ Getting rid of shell scripts
 - init and parts of upstart rely on bash shell scripts
 - systemd replaces the functionality of the shell scripts with compiled C code
 - still compatible with older system V init scripts
-UnitFile Locations
+UnitFile Locations - unitfiles shouldn't be edited
 /usr/lib/systemd/system - provided by pkg installations
-/etc/systemd/system - unti file location for system admins( these take precedence over other in /usr)
-/run/systemd/system -  runtime unti files
-systemctl list-unit-files
+/etc/systemd/system - unit file location for system admins( these take precedence over other in /usr)
+/run/systemd/system -  runtime unit files
+systemctl list-unit-files (lists all unitfiles)
 
 components of unit file
 Unit file follows the ini sytle format first seen in MS-DOS
@@ -119,12 +128,12 @@ Unit file follows the ini sytle format first seen in MS-DOS
 Description=Multi-User System
 Documentation=man:systemd.special(7)
 Requires=basic.target
-    orWants=(more rbuts)
+    orWants=(more robust)
 Conflicts=rescue.service rescue.target
 After=basic.target rescue.service rescue.target
 man 5 systemd.unit
 
 systemctl cat something.unit ->prints out contents of the unit file specified
 
-Ketnel still looks for /sbin/init
+Kernel still looks for /sbin/init
 systemd just took the place of /sbin/init which is the symbolic of ../lib/systemd/sysstemd
